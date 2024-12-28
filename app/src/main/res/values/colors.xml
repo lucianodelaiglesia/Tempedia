@@ -7,12 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-    //Custom
-    <color name="main">#8C343C</color>
-    <color name="secondary">#C44C54</color>
-    <color name="button">#FCB444</color>
-    <color name="main_dark">#280C14</color>
-    <color name="secondary_dark">#442C34</color>
-    <color name="button_dark">#402444</color>
 </resources>
