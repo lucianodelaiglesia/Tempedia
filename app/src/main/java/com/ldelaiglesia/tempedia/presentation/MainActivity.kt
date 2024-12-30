@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemDetailScreen
 import com.ldelaiglesia.tempedia.presentation.temtem_list.components.TemtemListScreen
+import com.ldelaiglesia.tempedia.presentation.temtem_loading.components.LoadingScreen
 import com.ldelaiglesia.tempedia.presentation.ui.theme.TempediaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,8 +31,13 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(
                         navController = navController,
-                        startDestination = Screen.TemtemListScreen.route
+                        startDestination = Screen.LoadingScreen.route
                     ) {
+                        composable(
+                            route = Screen.LoadingScreen.route
+                        ) {
+                            LoadingScreen(navController)
+                        }
                         composable(
                             route = Screen.TemtemListScreen.route
                         ) {
