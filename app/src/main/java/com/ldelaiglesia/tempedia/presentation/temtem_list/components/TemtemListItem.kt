@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.ldelaiglesia.tempedia.R
 import com.ldelaiglesia.tempedia.domain.models.Temtem
-import com.ldelaiglesia.tempedia.presentation.ui.theme.Background
+import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 
 @Composable
 fun TemtemListItem(
@@ -38,7 +38,7 @@ fun TemtemListItem(
         .clickable { onItemClick(temtem) }) {
         Card(
             colors = CardDefaults.cardColors(
-                containerColor = Background
+                containerColor = ColorPrimary
             ),
             modifier = Modifier
                 .fillMaxWidth(),
@@ -59,7 +59,9 @@ fun TemtemListItem(
                         fontSize = 28.sp,
                         color = Color.White,
                         textAlign = TextAlign.Left,
-                        modifier = Modifier.weight(0.8f)
+                        modifier = Modifier
+                            .weight(0.8f)
+                            .padding(start = 8.dp)
                     )
                     Box(
                         modifier = Modifier
@@ -72,7 +74,7 @@ fun TemtemListItem(
                             modifier = Modifier.fillMaxSize()
                         )
                         Image(
-                            painter = painterResource(id = R.drawable.portrait_border),
+                            painter = painterResource(id = R.drawable.portrait_border_primary),
                             contentDescription = null,
                             modifier = Modifier.fillMaxSize()
                         )
@@ -82,56 +84,3 @@ fun TemtemListItem(
         }
     }
 }
-
-/*
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(20.dp)
-        .clickable { /*onItemClick(temtem)*/ }) {
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(8.dp), shape = RoundedCornerShape(10.dp)
-        ) {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "temtem.name",
-                        modifier = Modifier
-                            .wrapContentSize(),
-                        //.align(alignment = Alignment.CenterVertically),
-                        color = Color.White,
-                        fontSize = 28.sp,
-                        //fontFamily = FontFamily(Font(R.font.rubik_regular))
-                    )
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(64.dp)
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.portrait_border),
-                            contentDescription = null,
-                            //modifier = Modifier.height(64.dp)
-                        )
-                        Image(
-                            painter = rememberAsyncImagePainter(model = "temtem.portrait"),
-                            contentDescription = null,
-                            //modifier = Modifier.height(64.dp)
-                        )
-                    }
-                }
-            }
-        }
-    }
-}
- */
