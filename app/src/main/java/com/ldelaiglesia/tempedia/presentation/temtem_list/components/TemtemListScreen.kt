@@ -10,7 +10,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,13 +37,12 @@ fun TemtemListScreen(
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TextField(
-            value = searchText,
-            onValueChange = {
+        SearchTemtem(
+            searchText = searchText,
+            onQueryChange = {
                 searchText = it
                 viewModel.searchTemtem(it)
             },
-            label = { Text("Search") },
             modifier = Modifier.padding(top = 12.dp, bottom = 12.dp)
         )
         Box(
