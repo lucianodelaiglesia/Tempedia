@@ -54,4 +54,10 @@ class TemtemListViewModel @Inject constructor(
             _state.value = state.value.copy(temtemList = filteredList)
         }
     }
+
+    fun resetSearch() {
+        viewModelScope.launch {
+            _state.value = state.value.copy(temtemList = originalTemtemList)
+        }
+    }
 }
