@@ -1,9 +1,12 @@
 package com.ldelaiglesia.tempedia.presentation.temtem_list.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidth
@@ -30,13 +33,28 @@ fun FilterMenuContent(
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .padding(top = 32.dp)
             .background(DarkGray)
             .requiredWidth(250.dp)
     ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 10.dp, bottom = 25.dp)
+        ) {
+            Text(
+                text = "Filter by type",
+                fontSize = 28.sp,
+                color = Color.White,
+            )
+        }
         typeList.forEach { type ->
             Row(
-                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        onTypeSelected(type.name, !selectedTypes.contains(type.name))
+                    },
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Checkbox(
                     modifier = Modifier.size(56.dp),
@@ -47,7 +65,7 @@ fun FilterMenuContent(
                 )
                 Text(
                     text = type.name,
-                    fontSize = 28.sp,
+                    fontSize = 20.sp,
                     color = Color.White,
                 )
             }
