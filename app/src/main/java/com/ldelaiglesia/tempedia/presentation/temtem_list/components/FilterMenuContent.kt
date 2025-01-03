@@ -1,5 +1,6 @@
 package com.ldelaiglesia.tempedia.presentation.temtem_list.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
 import com.ldelaiglesia.tempedia.domain.models.Type
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 import com.ldelaiglesia.tempedia.presentation.ui.theme.DarkGray
@@ -67,6 +69,11 @@ fun FilterMenuContent(
                     text = type.name,
                     fontSize = 20.sp,
                     color = Color.White,
+                )
+                Image(
+                    painter = rememberAsyncImagePainter(model = type.icon),
+                    contentDescription = type.name,
+                    modifier = Modifier.size(48.dp)
                 )
             }
             HorizontalDivider(
