@@ -25,13 +25,17 @@ class TemtemListViewModel @Inject constructor(
     private val _state = mutableStateOf(TemtemListState())
     val state: State<TemtemListState> = _state
 
-    private var originalTemtemList = emptyList<Temtem>()
+    private var temtemList = emptyList<Temtem>()
 
     private val _openDrawerEvent = MutableSharedFlow<Unit>()
     val openDrawerEvent: SharedFlow<Unit> = _openDrawerEvent
 
     private val _typeList = mutableStateOf(emptyList<Type>())
     val typeList: State<List<Type>> = _typeList
+
+    private val _selectedTypes = mutableStateOf<Set<String>>(emptySet())
+
+    private val _searchText = mutableStateOf("")
 
     init {
         getTemtemList()
@@ -42,9 +46,9 @@ class TemtemListViewModel @Inject constructor(
         getTemtemUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    originalTemtemList = result.data ?: emptyList()
+                    temtemList = result.data ?: emptyList()
                     _state.value =
-                        TemtemListState(temtemList = originalTemtemList)
+                        TemtemListState(temtemList = temtemList)
                 }
 
                 is Resource.Loading -> _state.value = TemtemListState(isLoading = true)
@@ -55,21 +59,13 @@ class TemtemListViewModel @Inject constructor(
     }
 
     fun searchTemtem(query: String) {
-        viewModelScope.launch {
-            val filteredList = if (query.isBlank()) {
-                originalTemtemList
-            } else {
-                originalTemtemList.filter { temtem ->
-                    temtem.name.contains(query, ignoreCase = true)
-                }
-            }
-            _state.value = state.value.copy(temtemList = filteredList)
-        }
+        _searchText.value = query
+        applySearchAndFilter()
     }
 
     fun resetSearch() {
         viewModelScope.launch {
-            _state.value = state.value.copy(temtemList = originalTemtemList)
+            _state.value = state.value.copy(temtemList = temtemList)
         }
     }
 
@@ -91,20 +87,28 @@ class TemtemListViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    fun openDrawer(){
+    fun openDrawer() {
         viewModelScope.launch {
             _openDrawerEvent.emit(Unit)
         }
     }
 
     fun filterByTypes(types: Set<String>) {
+        _selectedTypes.value = types
+        applySearchAndFilter()
+    }
+
+    private fun applySearchAndFilter() {
         viewModelScope.launch {
-            val filteredList = if (types.isEmpty()) {
-                originalTemtemList
-            } else {
-                originalTemtemList.filter { temtem ->
-                    temtem.types.any { type -> types.contains(type) }
-                }
+            val filteredList = temtemList.filter { temtem ->
+                //Filter by type
+                _selectedTypes.value.isEmpty() || temtem.types.any { it in _selectedTypes.value }
+            }.filter { temtem ->
+                //Filter by search
+                _searchText.value.isEmpty() || temtem.name.contains(
+                    _searchText.value,
+                    ignoreCase = true
+                )
             }
             _state.value = state.value.copy(temtemList = filteredList)
         }
