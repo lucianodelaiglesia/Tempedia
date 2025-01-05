@@ -2,6 +2,7 @@ package com.ldelaiglesia.tempedia.presentation.temtem_detail
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -36,5 +37,13 @@ class TemtemDetailViewModel @Inject constructor(
                     TemtemDetailState(error = result.message ?: "Error desconocido")
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun getStatColor(statValue: Int): Color{
+        return when (statValue) {
+            in 0..40 -> Color.Red
+            in 41..80 -> Color.Yellow
+            else -> Color.Green
+        }
     }
 }
