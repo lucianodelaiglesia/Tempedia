@@ -33,7 +33,7 @@ class GetTemtemDetailUseCase @Inject constructor(
                 val typeData = typeMap!!.values.find {
                     it.name == type
                 }
-                "${BASE_URL}${typeData!!.icon}"
+                typeData!!.icon
             }
             // Copying new data class with icons
             val temtemWithIcons = temtem.copy(types = typeIcons)
