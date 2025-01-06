@@ -20,7 +20,10 @@ data class TemtemDetailDto(
     val portrait: String,
 
     @SerializedName("portraitWikiUrl")
-    val portraitList: String
+    val portraitList: String,
+
+    @SerializedName("gameDescription")
+    val gameDescription: String
 )
 
 data class Stats(
@@ -50,6 +53,7 @@ fun TemtemDetailDto.toTemtemDetail(): TemtemDetail {
             Pair("total", stats.total)
         ),
         portrait = portrait,
-        portraitList = portraitList
+        portraitList = portraitList,
+        gameDescription = gameDescription
     )
 }

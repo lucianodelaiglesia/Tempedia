@@ -77,7 +77,9 @@ fun TemtemDetailScreen(
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
@@ -88,7 +90,9 @@ fun TemtemDetailScreen(
                             )
                         }
                         Row(
-                            modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             Text(
@@ -99,7 +103,9 @@ fun TemtemDetailScreen(
                             )
                         }
                         Row(
-                            modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             temtemDetail.types.forEach { type ->
@@ -116,7 +122,21 @@ fun TemtemDetailScreen(
                             }
                         }
                         Row(
-                            modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = temtemDetail.gameDescription,
+                                fontSize = 18.sp,
+                                color = Color.White
+                            )
+                        }
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(top = 10.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Text(text = "Stats", fontSize = 32.sp, color = Color.White)

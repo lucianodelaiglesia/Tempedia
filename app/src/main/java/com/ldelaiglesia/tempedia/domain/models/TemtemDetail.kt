@@ -6,5 +6,6 @@ data class TemtemDetail(
     val types: List<String>,
     val stats: Map<String, Int>,
     val portrait: String,
-    val portraitList: String
+    val portraitList: String,
+    val gameDescription: String
 )
