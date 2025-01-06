@@ -1,29 +1,18 @@
 package com.ldelaiglesia.tempedia.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
+import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
 
 data class TemtemDetailDto(
-    @SerializedName("number")
-    val number: Int,
-
-    @SerializedName("name")
-    val name: String,
-
-    @SerializedName("types")
-    val types: List<String>,
-
-    @SerializedName("stats")
-    val stats: Stats,
-
-    @SerializedName("wikiRenderStaticLumaUrl")
-    val portrait: String,
-
-    @SerializedName("portraitWikiUrl")
-    val portraitList: String,
-
-    @SerializedName("gameDescription")
-    val gameDescription: String
+    @SerializedName("number") val number: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("types") val types: List<String>,
+    @SerializedName("stats") val stats: Stats,
+    @SerializedName("wikiRenderStaticLumaUrl") val portrait: String,
+    @SerializedName("portraitWikiUrl") val portraitList: String,
+    @SerializedName("gameDescription") val gameDescription: String,
+    @SerializedName("techniques") val techniques: List<Technique>
 )
 
 data class Stats(
@@ -54,6 +43,7 @@ fun TemtemDetailDto.toTemtemDetail(): TemtemDetail {
         ),
         portrait = portrait,
         portraitList = portraitList,
-        gameDescription = gameDescription
+        gameDescription = gameDescription,
+        techniques = techniques
     )
 }

@@ -20,3 +20,6 @@ val Pink40 = Color(0xFF7D5260)
 val StatLow = Color(0xFFC92029)
 val StatMid = Color(0xFFC9C900)
 val StatHigh = Color(0xFF2EC934)
+
+val Damage = Color(0xFFE94967)
+val Stamina = Color(0xFF53DAD7)

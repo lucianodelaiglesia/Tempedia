@@ -1,7 +1,6 @@
 package com.ldelaiglesia.tempedia.domain.usecases
 
 import coil.network.HttpException
-import com.ldelaiglesia.tempedia.common.Constants.BASE_URL
 import com.ldelaiglesia.tempedia.common.Resource
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
 import com.ldelaiglesia.tempedia.domain.provider.TemtemProvider

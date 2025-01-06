@@ -1,6 +1,7 @@
 package com.ldelaiglesia.tempedia.data.remote
 
 import com.ldelaiglesia.tempedia.data.remote.dto.ItemDto
+import com.ldelaiglesia.tempedia.data.remote.dto.TechniqueDetailDto
 import com.ldelaiglesia.tempedia.data.remote.dto.TemtemDetailDto
 import com.ldelaiglesia.tempedia.data.remote.dto.TemtemDto
 import com.ldelaiglesia.tempedia.data.remote.dto.TypeDto
@@ -20,4 +21,7 @@ interface TemtemApiService {
 
     @GET("api/items")
     suspend fun getAllItems(): List<ItemDto>
+
+    @GET("api/techniques")
+    suspend fun getAllTechniquesDetails(): List<TechniqueDetailDto>
 }
