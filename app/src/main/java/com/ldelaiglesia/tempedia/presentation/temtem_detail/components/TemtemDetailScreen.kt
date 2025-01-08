@@ -13,12 +13,10 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,8 +28,6 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -508,10 +504,22 @@ fun TemtemDetailScreen(
                             )
                             Row(modifier = Modifier.fillMaxWidth()) {
                                 techniqueDetail.synergyEffects.forEach { effect ->
-                                    Column(modifier = Modifier.padding(8.dp)) {
-                                        Text(text = "Effect: ${effect.effect}")
-                                        Text(text = "Type: ${effect.type}")
-                                        Text(text = "Damage: ${effect.damage}")
+                                    Column(modifier = Modifier.padding(8.dp).weight(0.5f)) {
+                                        Text(
+                                            text = "Effect: ${effect.effect}",
+                                            fontSize = 14.sp,
+                                            color = Color.White
+                                        )
+                                        Text(
+                                            text = "Type: ${effect.type}",
+                                            fontSize = 14.sp,
+                                            color = Color.White
+                                        )
+                                        Text(
+                                            text = "Damage: ${effect.damage}",
+                                            fontSize = 14.sp,
+                                            color = Color.White
+                                        )
                                     }
                                 }
                             }
