@@ -10,6 +10,9 @@ import com.ldelaiglesia.tempedia.common.Constants.PARAM_TEMTEM_ID
 import com.ldelaiglesia.tempedia.common.Resource
 import com.ldelaiglesia.tempedia.domain.usecases.GetTechniqueDetailUseCase
 import com.ldelaiglesia.tempedia.domain.usecases.GetTemtemDetailUseCase
+import com.ldelaiglesia.tempedia.presentation.ui.theme.StatHigh
+import com.ldelaiglesia.tempedia.presentation.ui.theme.StatLow
+import com.ldelaiglesia.tempedia.presentation.ui.theme.StatMid
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -51,9 +54,9 @@ class TemtemDetailViewModel @Inject constructor(
 
     fun getStatColor(statValue: Int): Color {
         return when (statValue) {
-            in 0..40 -> Color.Red
-            in 41..80 -> Color.Yellow
-            else -> Color.Green
+            in 0..40 -> StatLow
+            in 41..80 -> StatMid
+            else -> StatHigh
         }
     }
 

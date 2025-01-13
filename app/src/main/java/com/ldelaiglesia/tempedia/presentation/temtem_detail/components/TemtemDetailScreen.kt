@@ -310,7 +310,7 @@ fun TemtemDetailScreen(
                                                 if (technique.levels != null) {
                                                     Text(
                                                         text = "Lvl ${technique.levels}",
-                                                        fontSize = 14.sp,
+                                                        fontSize = 12.sp,
                                                         color = Color.LightGray
                                                     )
                                                 } else Text(
@@ -373,7 +373,7 @@ fun TemtemDetailScreen(
                                     ) {
                                         Text(
                                             text = techniqueDetail.damage,
-                                            fontSize = 24.sp,
+                                            fontSize = 20.sp,
                                             color = Color.White
                                         )
                                     }
@@ -387,7 +387,7 @@ fun TemtemDetailScreen(
                                     ) {
                                         Text(
                                             text = techniqueDetail.staminaCost,
-                                            fontSize = 24.sp,
+                                            fontSize = 20.sp,
                                             color = Color.White,
                                         )
                                     }
