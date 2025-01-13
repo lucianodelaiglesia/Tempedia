@@ -19,6 +19,7 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,7 +47,7 @@ fun TemtemListScreen(
     var searchText by remember { mutableStateOf("") }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-    var selectedTypes by remember { mutableStateOf(emptySet<String>()) }
+    val selectedTypes by viewModel.selectedTypes.collectAsState()
     val typeList by remember { viewModel.typeList }
     val scope = rememberCoroutineScope()
 
@@ -55,12 +56,12 @@ fun TemtemListScreen(
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
                 FilterMenuContent(
                     selectedTypes = selectedTypes, onTypeSelected = { type, isChecked ->
-                        selectedTypes = if (isChecked) {
+                        val localSelectedTypes = if (isChecked) {
                             selectedTypes + type
                         } else {
                             selectedTypes - type
                         }
-                        viewModel.filterByTypes(selectedTypes)
+                        viewModel.filterByTypes(localSelectedTypes)
                     }, typeList = typeList
                 )
             }
@@ -134,7 +135,7 @@ fun TemtemListScreen(
                 }
             }
             LaunchedEffect(key1 = Unit) {
-                viewModel.resetSearch()
+                viewModel.resetSearchAndFilters()
             }
 
             LaunchedEffect(key1 = Unit) {

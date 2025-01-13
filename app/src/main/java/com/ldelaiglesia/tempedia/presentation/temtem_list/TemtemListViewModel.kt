@@ -11,7 +11,9 @@ import com.ldelaiglesia.tempedia.domain.usecases.GetAllTypesUseCase
 import com.ldelaiglesia.tempedia.domain.usecases.GetTemtemUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -33,7 +35,8 @@ class TemtemListViewModel @Inject constructor(
     private val _typeList = mutableStateOf(emptyList<Type>())
     val typeList: State<List<Type>> = _typeList
 
-    private val _selectedTypes = mutableStateOf<Set<String>>(emptySet())
+    private val _selectedTypes = MutableStateFlow<Set<String>>(emptySet())
+    val selectedTypes: StateFlow<Set<String>> = _selectedTypes
 
     private val _searchText = mutableStateOf("")
 
@@ -63,9 +66,10 @@ class TemtemListViewModel @Inject constructor(
         applySearchAndFilter()
     }
 
-    fun resetSearch() {
+    fun resetSearchAndFilters() {
         viewModelScope.launch {
             _state.value = state.value.copy(temtemList = temtemList)
+            _selectedTypes.value = emptySet()
         }
     }
 
