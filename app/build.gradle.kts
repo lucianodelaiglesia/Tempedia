@@ -78,6 +78,8 @@ dependencies {
 
     //COIL
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.gif)
 
     //DAGGER HILT
     implementation(libs.hilt.android)

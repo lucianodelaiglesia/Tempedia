@@ -1,6 +1,5 @@
 package com.ldelaiglesia.tempedia.domain.usecases
 
-import coil.network.HttpException
 import com.ldelaiglesia.tempedia.common.Resource
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
 import com.ldelaiglesia.tempedia.domain.provider.TemtemProvider
@@ -8,6 +7,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import okio.IOException
+import retrofit2.HttpException
 import javax.inject.Inject
 
 class GetTemtemDetailUseCase @Inject constructor(
