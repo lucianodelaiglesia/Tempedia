@@ -22,7 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
+import coil3.compose.rememberAsyncImagePainter
 import com.ldelaiglesia.tempedia.domain.models.Type
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 import com.ldelaiglesia.tempedia.presentation.ui.theme.DarkGray

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -45,10 +44,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberAsyncImagePainter
+import coil3.compose.rememberAsyncImagePainter
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
-import com.ldelaiglesia.tempedia.presentation.ui.theme.Background
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 import com.ldelaiglesia.tempedia.presentation.ui.theme.Damage
 import com.ldelaiglesia.tempedia.presentation.ui.theme.MediumGray
@@ -77,22 +75,7 @@ fun TemtemDetailScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .height(300.dp)
-                                .fillMaxWidth()
-                                .background(Background)
-                        ) {
-                            Image(
-                                painter = rememberAsyncImagePainter(model = temtemDetail.portrait),
-                                contentDescription = null,
-                                contentScale = ContentScale.None,
-                                modifier = Modifier
-                                    .wrapContentSize()
-                                    .aspectRatio(0.5f)
-                                    .align(Alignment.Center)
-                            )
-                        }
+                        ImgToGif(temtem = temtemDetail)
                     }
                 }
                 item {
@@ -504,7 +487,11 @@ fun TemtemDetailScreen(
                             )
                             Row(modifier = Modifier.fillMaxWidth()) {
                                 techniqueDetail.synergyEffects.forEach { effect ->
-                                    Column(modifier = Modifier.padding(8.dp).weight(0.5f)) {
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(8.dp)
+                                            .weight(0.5f)
+                                    ) {
                                         Text(
                                             text = "Effect: ${effect.effect}",
                                             fontSize = 14.sp,
