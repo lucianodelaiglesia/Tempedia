@@ -1,18 +1,12 @@
-package com.ldelaiglesia.tempedia.presentation.temtem_list.components
+package com.ldelaiglesia.tempedia.presentation.temtem_list.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
@@ -29,14 +23,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.ldelaiglesia.tempedia.common.StateError
+import com.ldelaiglesia.tempedia.common.StateLoading
 import com.ldelaiglesia.tempedia.presentation.Screen
 import com.ldelaiglesia.tempedia.presentation.temtem_list.TemtemListViewModel
+import com.ldelaiglesia.tempedia.presentation.temtem_list.components.FilterMenuContent
+import com.ldelaiglesia.tempedia.presentation.temtem_list.components.SearchAndFilterTemtem
+import com.ldelaiglesia.tempedia.presentation.temtem_list.components.TemtemListItem
 import kotlinx.coroutines.launch
 
 @Composable
@@ -80,31 +78,13 @@ fun TemtemListScreen(
                             color = Color.White,
                         )
                     }
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 12.dp, bottom = 12.dp)
-                    ) {
-                        SearchTemtem(
-                            searchText = searchText, onQueryChange = {
-                                searchText = it
-                                viewModel.searchTemtem(it)
-                            }, modifier = Modifier.weight(7f)
-                        )
-                        Button(
-                            onClick = { viewModel.openDrawer() },
-                            modifier = Modifier
-                                .weight(3f),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = Color.Transparent,
-                                contentColor = Color.Transparent,
-                                disabledContainerColor = Color.Transparent,
-                                disabledContentColor = Color.Transparent
-                            )
-                        ) {
-                            FilterButton()
-                        }
-                    }
+                    SearchAndFilterTemtem(
+                        searchText = searchText, onQueryChange = {
+                            searchText = it
+                            viewModel.searchTemtem(it)
+                        }, modifier = Modifier.weight(7f),
+                        openDrawer = { viewModel.openDrawer() }
+                    )
 
                     Box(
                         modifier = Modifier.fillMaxSize()
@@ -118,18 +98,10 @@ fun TemtemListScreen(
                             }
                         }
                         if (state.error.isNotBlank()) {
-                            Text(
-                                text = state.error,
-                                color = MaterialTheme.colorScheme.error,
-                                textAlign = TextAlign.Center,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 20.dp)
-                                    .align(Alignment.Center)
-                            )
+                            StateError(state = state)
                         }
                         if (state.isLoading) {
-                            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                            StateLoading()
                         }
                     }
                 }

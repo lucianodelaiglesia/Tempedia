@@ -32,7 +32,7 @@ fun TemtemDetailScreen(
     var showBottomSheet by remember { mutableStateOf(false) }
     var selectedTechnique by remember { mutableStateOf<Technique?>(null) }
     val selectedTechniqueDetails by snapshotFlow {
-        viewModel.techniqueDetailState.value.techniqueDetail
+        viewModel.techniqueDetailState.value.data
     }.collectAsState(initial = null)
 
     Box(modifier = Modifier.fillMaxSize()) {

@@ -66,7 +66,7 @@ class TemtemDetailViewModel @Inject constructor(
                 when (result) {
                     is Resource.Success -> {
                         _techniqueDetailsState.value =
-                            TechniqueDetailState(techniqueDetail = result.data)
+                            TechniqueDetailState(data = result.data)
                     }
 
                     is Resource.Loading -> {
