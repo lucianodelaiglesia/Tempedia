@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemDetailScreen
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.screen.TemtemDetailScreen
 import com.ldelaiglesia.tempedia.presentation.temtem_list.components.TemtemListScreen
 import com.ldelaiglesia.tempedia.presentation.temtem_loading.components.LoadingScreen
 import com.ldelaiglesia.tempedia.presentation.ui.theme.TempediaTheme

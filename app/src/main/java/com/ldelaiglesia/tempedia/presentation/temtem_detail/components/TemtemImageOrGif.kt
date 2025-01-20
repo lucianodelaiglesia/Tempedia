@@ -1,7 +1,9 @@
 package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -30,7 +32,7 @@ import com.ldelaiglesia.tempedia.presentation.ui.theme.Background
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 
 @Composable
-fun ImgToGif(
+fun TemtemImageOrGif(
     temtem: TemtemDetail
 ) {
     var isGifVisible by remember { mutableStateOf(false) }
@@ -50,30 +52,35 @@ fun ImgToGif(
     } else {
         temtem.portrait
     }
-    Box(
-        modifier = Modifier
-            .height(300.dp)
-            .fillMaxWidth()
-            .background(Background)
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        AsyncImage(
-            model = imageUrl,
-            contentDescription = null,
-            contentScale = ContentScale.Fit,
-            imageLoader = imageLoader,
+        Box(
             modifier = Modifier
-                .scale(0.7f)
-                .align(Alignment.Center)
-        )
-        Button(
-            onClick = { isGifVisible = !isGifVisible },
-            modifier = Modifier
-                .alpha(if (isGifVisible) 1f else 0.5f)
-                .align(Alignment.BottomStart)
-                .padding(8.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = ColorPrimary)
+                .height(300.dp)
+                .fillMaxWidth()
+                .background(Background)
         ) {
-            Text(text = "GIF", color = Color.White)
+            AsyncImage(
+                model = imageUrl,
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                imageLoader = imageLoader,
+                modifier = Modifier
+                    .scale(0.7f)
+                    .align(Alignment.Center)
+            )
+            Button(
+                onClick = { isGifVisible = !isGifVisible },
+                modifier = Modifier
+                    .alpha(if (isGifVisible) 1f else 0.5f)
+                    .align(Alignment.BottomStart)
+                    .padding(8.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = ColorPrimary)
+            ) {
+                Text(text = "GIF", color = Color.White)
+            }
         }
     }
 }
