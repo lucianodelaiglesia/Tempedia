@@ -112,7 +112,7 @@ fun TemtemListScreen(
                         LazyColumn(
                             modifier = Modifier.fillMaxSize()
                         ) {
-                            items(state.temtemList) { temtem ->
+                            items(state.data) { temtem ->
                                 TemtemListItem(temtem = temtem,
                                     onItemClick = { navController.navigate(Screen.TemtemDetailScreen.route + "/${temtem.number}") })
                             }

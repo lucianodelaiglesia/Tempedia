@@ -41,7 +41,7 @@ class TemtemDetailViewModel @Inject constructor(
         getTemtemDetailUseCase(number).onEach { result ->
             when (result) {
                 is Resource.Success -> _temtemDetailState.value =
-                    TemtemDetailState(temtemDetail = result.data)
+                    TemtemDetailState(data = result.data)
 
                 is Resource.Loading -> _temtemDetailState.value =
                     TemtemDetailState(isLoading = true)
