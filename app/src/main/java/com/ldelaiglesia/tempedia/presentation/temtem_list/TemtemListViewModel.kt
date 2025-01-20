@@ -51,7 +51,7 @@ class TemtemListViewModel @Inject constructor(
                 is Resource.Success -> {
                     temtemList = result.data ?: emptyList()
                     _state.value =
-                        TemtemListState(temtemList = temtemList)
+                        TemtemListState(data = temtemList)
                 }
 
                 is Resource.Loading -> _state.value = TemtemListState(isLoading = true)
@@ -68,7 +68,7 @@ class TemtemListViewModel @Inject constructor(
 
     fun resetSearchAndFilters() {
         viewModelScope.launch {
-            _state.value = state.value.copy(temtemList = temtemList)
+            _state.value = state.value.copy(data = temtemList)
             _selectedTypes.value = emptySet()
         }
     }
@@ -114,7 +114,7 @@ class TemtemListViewModel @Inject constructor(
                     ignoreCase = true
                 )
             }
-            _state.value = state.value.copy(temtemList = filteredList)
+            _state.value = state.value.copy(data = filteredList)
         }
     }
 }
