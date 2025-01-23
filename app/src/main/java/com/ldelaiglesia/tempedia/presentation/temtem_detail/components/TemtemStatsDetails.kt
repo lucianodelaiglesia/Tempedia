@@ -28,7 +28,7 @@ fun TemtemStatsDetails(temtem: TemtemDetail, viewModel: TemtemDetailViewModel){
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 20.dp, end = 20.dp)
+            .padding(20.dp)
     ) {
         Row(
             modifier = Modifier

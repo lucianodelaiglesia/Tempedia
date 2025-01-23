@@ -17,6 +17,8 @@ import com.ldelaiglesia.tempedia.common.StateError
 import com.ldelaiglesia.tempedia.common.StateLoading
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.DetailOptions
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.StatsOrTechniquesButtons
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TechniqueDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemBasicInfo
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemImageOrGif
@@ -34,6 +36,7 @@ fun TemtemDetailScreen(
     val selectedTechniqueDetails by snapshotFlow {
         viewModel.techniqueDetailState.value.data
     }.collectAsState(initial = null)
+    var selectedOption by remember { mutableStateOf(DetailOptions.STATS) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         state.data?.let { temtemDetail ->
@@ -47,15 +50,33 @@ fun TemtemDetailScreen(
                     TemtemBasicInfo(temtem = temtemDetail)
                 }
                 item {
-                    TemtemStatsDetails(temtem = temtemDetail, viewModel = viewModel)
+                    StatsOrTechniquesButtons { option ->
+                        selectedOption = option
+                    }
                 }
-                item {
-                    TemtemTechniquesList(
-                        temtem = temtemDetail,
-                        onShowBottomSheet = { showBottomSheet = true },
-                        onTechniqueSelected = { selectedTechnique = it },
-                        viewModel = viewModel
-                    )
+                when (selectedOption) {
+                    DetailOptions.STATS ->
+                        item {
+                            TemtemStatsDetails(
+                                temtem = temtemDetail,
+                                viewModel = viewModel
+                            )
+                        }
+
+                    DetailOptions.TECHNIQUES ->
+                        item {
+                            TemtemTechniquesList(
+                                temtem = temtemDetail,
+                                onShowBottomSheet = { showBottomSheet = true },
+                                onTechniqueSelected = { selectedTechnique = it },
+                                viewModel = viewModel
+                            )
+                        }
+
+                    DetailOptions.EVOLUTION ->
+                        item {
+                            //TODO Evolutions composable
+                        }
                 }
             }
         }

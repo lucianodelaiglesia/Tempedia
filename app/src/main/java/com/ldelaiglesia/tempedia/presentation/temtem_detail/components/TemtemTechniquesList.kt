@@ -36,12 +36,19 @@ fun TemtemTechniquesList(
             .fillMaxWidth()
             .padding(20.dp)
     ) {
-        Text(
-            text = "Techniques",
-            fontSize = 32.sp,
-            color = Color.White,
-            modifier = Modifier.padding(bottom = 10.dp)
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Techniques",
+                fontSize = 32.sp,
+                color = Color.White,
+                modifier = Modifier.padding(bottom = 10.dp)
+            )
+        }
         temtem.techniques.forEach { technique ->
             Row(
                 modifier = Modifier
