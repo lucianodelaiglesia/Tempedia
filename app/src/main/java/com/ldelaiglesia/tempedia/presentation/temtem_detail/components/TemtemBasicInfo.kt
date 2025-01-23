@@ -85,13 +85,5 @@ fun TemtemBasicInfo(temtem: TemtemDetail) {
                 color = Color.White
             )
         }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 10.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(text = "Stats", fontSize = 32.sp, color = Color.White)
-        }
     }
 }

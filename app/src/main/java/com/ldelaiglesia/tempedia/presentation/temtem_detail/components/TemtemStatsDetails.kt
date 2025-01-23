@@ -30,6 +30,14 @@ fun TemtemStatsDetails(temtem: TemtemDetail, viewModel: TemtemDetailViewModel){
             .fillMaxWidth()
             .padding(start = 20.dp, end = 20.dp)
     ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 10.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = "Stats", fontSize = 32.sp, color = Color.White)
+        }
         temtem.stats.forEach { stat ->
             when (stat.key.uppercase() != "TOTAL") {
                 true -> Row(

@@ -11,7 +11,7 @@ import com.ldelaiglesia.tempedia.R
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyLarge = TextStyle(
-        fontFamily = FontFamily(Font(R.font.rubik_regular)),
+        fontFamily = FontFamily(Font(R.font.temfont_regular)),
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
