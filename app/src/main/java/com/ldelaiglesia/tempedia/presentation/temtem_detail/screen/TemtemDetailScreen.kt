@@ -18,7 +18,7 @@ import com.ldelaiglesia.tempedia.common.StateLoading
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.DetailOptions
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.StatsOrTechniquesButtons
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.SectionsButtons
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TechniqueDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemBasicInfo
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemImageOrGif
@@ -50,7 +50,7 @@ fun TemtemDetailScreen(
                     TemtemBasicInfo(temtem = temtemDetail)
                 }
                 item {
-                    StatsOrTechniquesButtons { option ->
+                    SectionsButtons { option ->
                         selectedOption = option
                     }
                 }
@@ -76,6 +76,11 @@ fun TemtemDetailScreen(
                     DetailOptions.EVOLUTION ->
                         item {
                             //TODO Evolutions composable
+                        }
+
+                    DetailOptions.LOCATION ->
+                        item {
+                            //TODO Locations composable
                         }
                 }
             }

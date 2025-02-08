@@ -3,7 +3,8 @@ package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -24,8 +25,9 @@ import androidx.compose.ui.unit.dp
 import com.ldelaiglesia.tempedia.presentation.ui.theme.Background
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun StatsOrTechniquesButtons(onOptionSelected: (DetailOptions) -> Unit) {
+fun SectionsButtons(onOptionSelected: (DetailOptions) -> Unit) {
     var selectedOption by remember { mutableStateOf(DetailOptions.STATS) }
 
     Box(
@@ -34,7 +36,7 @@ fun StatsOrTechniquesButtons(onOptionSelected: (DetailOptions) -> Unit) {
             .padding(16.dp)
             .background(ColorPrimary, shape = RoundedCornerShape(24.dp))
     ) {
-        Row(
+        FlowRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.Center),
@@ -90,10 +92,27 @@ fun StatsOrTechniquesButtons(onOptionSelected: (DetailOptions) -> Unit) {
                     color = Color.White
                 )
             }
+            Button(
+                onClick = {
+                    selectedOption = DetailOptions.LOCATION
+                    onOptionSelected(selectedOption)
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = if (selectedOption == DetailOptions.LOCATION) Background else Color.Transparent
+                ),
+                modifier = Modifier
+                    .widthIn(min = 100.dp)
+                    .alpha(if (selectedOption == DetailOptions.LOCATION) 1f else 0.5f)
+            ){
+                Text(
+                    "Location",
+                    color = Color.White
+                )
+            }
         }
     }
 }
 
 enum class DetailOptions {
-    STATS, TECHNIQUES, EVOLUTION
+    STATS, TECHNIQUES, EVOLUTION, LOCATION
 }
