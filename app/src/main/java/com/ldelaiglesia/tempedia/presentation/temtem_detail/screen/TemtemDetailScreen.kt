@@ -21,6 +21,7 @@ import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.DetailOpt
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.SectionsButtons
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TechniqueDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemBasicInfo
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemEvolutions
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemImageOrGif
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemStatsDetails
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemTechniquesList
@@ -75,7 +76,10 @@ fun TemtemDetailScreen(
 
                     DetailOptions.EVOLUTION ->
                         item {
-                            //TODO Evolutions composable
+                            TemtemEvolutions(
+                                temtem = temtemDetail,
+                                viewModel = viewModel
+                            )
                         }
 
                     DetailOptions.LOCATION ->

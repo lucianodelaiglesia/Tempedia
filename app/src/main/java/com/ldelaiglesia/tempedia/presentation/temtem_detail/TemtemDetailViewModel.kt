@@ -31,6 +31,9 @@ class TemtemDetailViewModel @Inject constructor(
     private val _techniqueDetailsState = mutableStateOf(TechniqueDetailState())
     val techniqueDetailState: State<TechniqueDetailState> = _techniqueDetailsState
 
+    private val _portraitUrls = mutableStateOf<Map<Int, String>>(emptyMap())
+    val portraitUrls: State<Map<Int, String>> = _portraitUrls
+
     init {
         savedStateHandle.get<String>(PARAM_TEMTEM_ID)?.let { temtemId ->
             getTemtem(temtemId.toInt())
@@ -81,5 +84,25 @@ class TemtemDetailViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun getTemtemPortrait(number: Int) {
+        getTemtemDetailUseCase(number).onEach { result ->
+            when (result) {
+                is Resource.Success -> {
+                    result.data?.let { temtemDetail ->
+                        _portraitUrls.value += (temtemDetail.number to temtemDetail.portraitList)
+                    }
+                }
+
+                is Resource.Loading -> {
+                    //TODO
+                }
+
+                is Resource.Error -> {
+                    //TODO
+                }
+            }
+        }.launchIn(viewModelScope)
     }
 }

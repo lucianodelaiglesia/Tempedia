@@ -3,6 +3,7 @@ package com.ldelaiglesia.tempedia.data.remote.dto
 import com.google.gson.annotations.SerializedName
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
+import com.ldelaiglesia.tempedia.domain.models.TemtemEvolution
 
 data class TemtemDetailDto(
     @SerializedName("number") val number: Int,
@@ -12,6 +13,7 @@ data class TemtemDetailDto(
     @SerializedName("portraitWikiUrl") val portraitList: String,
     @SerializedName("gameDescription") val gameDescription: String,
     @SerializedName("techniques") val techniques: List<Technique>,
+    @SerializedName("evolution") val evolution: TemtemEvolution
 )
 
 data class Stats(
@@ -44,7 +46,8 @@ fun TemtemDetailDto.toTemtemDetail(): TemtemDetail {
         gameDescription = gameDescription,
         techniques = techniques,
         portrait = findTemtemPortrait(number),
-        portraitGif = findTemtemPortraitGif(number)
+        portraitGif = findTemtemPortraitGif(number),
+        evolution = evolution
     )
 }
 

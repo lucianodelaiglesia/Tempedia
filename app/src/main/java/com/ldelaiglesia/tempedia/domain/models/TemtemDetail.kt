@@ -9,5 +9,6 @@ data class TemtemDetail(
     val gameDescription: String,
     val techniques: List<Technique>,
     val portrait: String,
-    val portraitGif: String
+    val portraitGif: String,
+    val evolution: TemtemEvolution
 )
