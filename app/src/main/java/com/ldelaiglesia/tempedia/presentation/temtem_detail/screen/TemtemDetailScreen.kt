@@ -15,9 +15,11 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ldelaiglesia.tempedia.common.StateError
 import com.ldelaiglesia.tempedia.common.StateLoading
+import com.ldelaiglesia.tempedia.domain.models.EvolutionDetail
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.DetailOptions
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.EvolutionDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.SectionsButtons
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TechniqueDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemBasicInfo
@@ -32,12 +34,15 @@ fun TemtemDetailScreen(
 ) {
     val state = viewModel.temtemDetailState.value
 
-    var showBottomSheet by remember { mutableStateOf(false) }
+    var showBottomSheetTechnique by remember { mutableStateOf(false) }
+    var showBottomSheetEvolution by remember { mutableStateOf(false) }
     var selectedTechnique by remember { mutableStateOf<Technique?>(null) }
     val selectedTechniqueDetails by snapshotFlow {
         viewModel.techniqueDetailState.value.data
     }.collectAsState(initial = null)
     var selectedOption by remember { mutableStateOf(DetailOptions.STATS) }
+
+    var selectedEvolution by remember { mutableStateOf<EvolutionDetail?>(null) }
 
     Box(modifier = Modifier.fillMaxSize()) {
         state.data?.let { temtemDetail ->
@@ -68,7 +73,7 @@ fun TemtemDetailScreen(
                         item {
                             TemtemTechniquesList(
                                 temtem = temtemDetail,
-                                onShowBottomSheet = { showBottomSheet = true },
+                                onShowBottomSheet = { showBottomSheetTechnique = true },
                                 onTechniqueSelected = { selectedTechnique = it },
                                 viewModel = viewModel
                             )
@@ -78,6 +83,8 @@ fun TemtemDetailScreen(
                         item {
                             TemtemEvolutions(
                                 temtem = temtemDetail,
+                                onShowBottomSheet = { showBottomSheetEvolution = true },
+                                onEvolutionSelected = { selectedEvolution = it },
                                 viewModel = viewModel
                             )
                         }
@@ -91,11 +98,20 @@ fun TemtemDetailScreen(
         }
         selectedTechniqueDetails?.let {
             TechniqueDetailModal(
-                showBottomSheet,
-                onDismissRequest = { showBottomSheet = false },
+                showBottomSheetTechnique,
+                onDismissRequest = { showBottomSheetTechnique = false },
                 it
             )
         }
+
+        selectedEvolution?.let {
+            EvolutionDetailModal(
+                showBottomSheetEvolution,
+                onDismissRequest = { showBottomSheetEvolution = false },
+                it
+            )
+        }
+
         if (state.error.isNotBlank()) {
             StateError(state)
         }

@@ -2,6 +2,7 @@ package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.rememberAsyncImagePainter
 import com.ldelaiglesia.tempedia.R
+import com.ldelaiglesia.tempedia.domain.models.EvolutionDetail
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
 import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
@@ -34,6 +36,8 @@ import com.ldelaiglesia.tempedia.presentation.ui.theme.ColorPrimary
 @Composable
 fun TemtemEvolutions(
     temtem: TemtemDetail,
+    onShowBottomSheet: (Boolean) -> Unit,
+    onEvolutionSelected: (EvolutionDetail) -> Unit,
     viewModel: TemtemDetailViewModel
 ) {
     if (temtem.evolution.evolves) {
@@ -42,22 +46,27 @@ fun TemtemEvolutions(
                 .fillMaxSize()
                 .padding(20.dp)
         ) {
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = ColorPrimary
-                ),
-                modifier = Modifier
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                if (temtem.evolution.from != null) {
-                    val fromNumber = temtem.evolution.from.number
-                    LaunchedEffect(key1 = fromNumber) {
-                        viewModel.getTemtemPortrait(fromNumber)
-                    }
-                    val portraitUrls by viewModel.portraitUrls
-                    val fromPortraitUrl = portraitUrls[fromNumber]
+            if (temtem.evolution.from != null) {
+                val fromNumber = temtem.evolution.from.number
+                LaunchedEffect(key1 = fromNumber) {
+                    viewModel.getTemtemPortrait(fromNumber)
+                }
+                val portraitUrls by viewModel.portraitUrls
+                val fromPortraitUrl = portraitUrls[fromNumber]
+                val evolution = temtem.evolution.from
 
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = ColorPrimary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            onShowBottomSheet(true)
+                            onEvolutionSelected(evolution)
+                        },
+                    shape = RoundedCornerShape(10.dp)
+                ) {
                     Text(
                         text = "From",
                         color = Color.LightGray,
@@ -100,7 +109,16 @@ fun TemtemEvolutions(
                             )
                         }
                     }
-                } else {
+                }
+            } else {
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = ColorPrimary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
                     Text(
                         text = "From",
                         color = Color.LightGray,
@@ -127,22 +145,28 @@ fun TemtemEvolutions(
                 }
             }
             Spacer(modifier = Modifier.height(20.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = ColorPrimary
-                ),
-                modifier = Modifier
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                if (temtem.evolution.to != null) {
-                    val toNumber = temtem.evolution.to.number
-                    LaunchedEffect(key1 = toNumber) {
-                        viewModel.getTemtemPortrait(toNumber)
-                    }
-                    val portraitUrls by viewModel.portraitUrls
-                    val toPortraitUrl = portraitUrls[toNumber]
 
+            if (temtem.evolution.to != null) {
+                val toNumber = temtem.evolution.to.number
+                LaunchedEffect(key1 = toNumber) {
+                    viewModel.getTemtemPortrait(toNumber)
+                }
+                val portraitUrls by viewModel.portraitUrls
+                val toPortraitUrl = portraitUrls[toNumber]
+                val evolution = temtem.evolution.to
+
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = ColorPrimary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            onShowBottomSheet(true)
+                            onEvolutionSelected(evolution)
+                        },
+                    shape = RoundedCornerShape(10.dp)
+                ) {
                     Text(
                         text = "To",
                         color = Color.LightGray,
@@ -185,7 +209,16 @@ fun TemtemEvolutions(
                             )
                         }
                     }
-                } else {
+                }
+            } else {
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = ColorPrimary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    shape = RoundedCornerShape(10.dp)
+                ) {
                     Text(
                         text = "To",
                         color = Color.LightGray,
