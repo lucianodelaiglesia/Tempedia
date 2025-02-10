@@ -96,11 +96,17 @@ class TemtemDetailViewModel @Inject constructor(
                 }
 
                 is Resource.Loading -> {
-                    //TODO
+                    _temtemDetailState.value = _temtemDetailState.value.copy(
+                        portraitLoadingState = true,
+                        portraitError = ""
+                    )
                 }
 
                 is Resource.Error -> {
-                    //TODO
+                    _temtemDetailState.value = _temtemDetailState.value.copy(
+                        portraitLoadingState = false,
+                        portraitError = result.message ?: "Unknown error"
+                    )
                 }
             }
         }.launchIn(viewModelScope)
