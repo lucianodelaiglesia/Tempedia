@@ -70,6 +70,7 @@ class TemtemListViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = state.value.copy(data = temtemList)
             _selectedTypes.value = emptySet()
+            _searchText.value = ""
         }
     }
 
