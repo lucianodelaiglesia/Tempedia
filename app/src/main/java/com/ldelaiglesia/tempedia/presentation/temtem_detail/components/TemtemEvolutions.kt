@@ -40,12 +40,18 @@ fun TemtemEvolutions(
     onEvolutionSelected: (EvolutionDetail) -> Unit,
     viewModel: TemtemDetailViewModel
 ) {
-    if (temtem.evolution.evolves) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(20.dp)
-        ) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp)
+    ) {
+        if (temtem.evolution.evolves) {
+            TemtemEvolutionTree(temtem = temtem, viewModel = viewModel)
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            //TODO: special distribution for those temtem that have more than 3 evolutions (Tuwai)
+
             if (temtem.evolution.from != null) {
                 val fromNumber = temtem.evolution.from.number
                 LaunchedEffect(key1 = fromNumber) {
@@ -136,7 +142,7 @@ fun TemtemEvolutions(
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
                         Text(
-                            text = "This Temtem doesn't have a previous state",
+                            text = "${temtem.name} doesn't have a previous state",
                             color = Color.White,
                             fontSize = 28.sp,
                             textAlign = TextAlign.Center
@@ -236,7 +242,7 @@ fun TemtemEvolutions(
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
                         Text(
-                            text = "This Temtem doesn't evolve",
+                            text = "${temtem.name} doesn't evolve",
                             color = Color.White,
                             fontSize = 28.sp,
                             textAlign = TextAlign.Center
@@ -244,9 +250,7 @@ fun TemtemEvolutions(
                     }
                 }
             }
-        }
-    } else {
-        Box(modifier = Modifier.fillMaxSize()) {
+        } else {
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = ColorPrimary
@@ -255,7 +259,21 @@ fun TemtemEvolutions(
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(10.dp)
             ) {
-                Text("This Temtem doesn't evolve", color = Color.White)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+
+                    Text(
+                        text = "${temtem.name} doesn't evolve",
+                        color = Color.White,
+                        fontSize = 28.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }

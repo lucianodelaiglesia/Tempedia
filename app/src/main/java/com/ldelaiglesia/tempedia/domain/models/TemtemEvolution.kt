@@ -7,4 +7,5 @@ data class TemtemEvolution(
     val trading: Boolean? = false,
     val from: EvolutionDetail? = null,
     val to: EvolutionDetail? = null,
+    val evolutionTree: List<EvolutionDetail>? = null
 )

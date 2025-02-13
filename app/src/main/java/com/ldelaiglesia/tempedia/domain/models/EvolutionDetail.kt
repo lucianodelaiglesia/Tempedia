@@ -6,6 +6,7 @@ data class EvolutionDetail(
     val name: String = "",
     val level: Int = 0,
     val type: String = "",
+    val description: String? = "",
     val trading: Boolean = false,
     val traits: List<String> = listOf(),
     val traitMapping: Map<String, String> = mapOf()
