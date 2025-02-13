@@ -11,8 +11,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -91,17 +94,20 @@ fun TemtemEvolutionTree(
 
                         if (temtem.stage != evolutionTree.last().stage) {
                             Column (
-                                modifier = Modifier.padding(horizontal = 4.dp),
+                                modifier = Modifier.padding(4.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ){
-                                Text("->", textAlign = TextAlign.Center)
+                                Icon(
+                                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
+                                    contentDescription = null
+                                )
                                 if (temtem.type == "levels") {
                                     val evolvesAt = evolutionTree.find{
                                         it.stage == temtem.stage + 1
                                     }!!.level
 
-                                    Text("Leveling: $evolvesAt")
+                                    Text("Lvling: $evolvesAt")
                                 } else {
                                     Text("special")
                                     Text(temtem.description!!)
