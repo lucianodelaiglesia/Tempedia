@@ -46,11 +46,13 @@ fun TemtemEvolutions(
             .padding(20.dp)
     ) {
         if (temtem.evolution.evolves) {
-            TemtemEvolutionTree(temtem = temtem, viewModel = viewModel)
+            if (temtem.evolution.evolutionTree!!.last().stage > 3){
+                TemtemMultipleEvolutionTree(temtem = temtem, viewModel = viewModel)
+            } else {
+                TemtemEvolutionTree(temtem = temtem, viewModel = viewModel)
+            }
 
             Spacer(modifier = Modifier.height(20.dp))
-
-            //TODO: special distribution for those temtem that have more than 3 evolutions (Tuwai)
 
             if (temtem.evolution.from != null) {
                 val fromNumber = temtem.evolution.from.number
@@ -191,7 +193,7 @@ fun TemtemEvolutions(
                     ) {
                         Box(
                             modifier = Modifier
-                                .height(64.dp)
+                                .height(80.dp)
                                 .weight(0.5f)
                         ) {
                             Image(

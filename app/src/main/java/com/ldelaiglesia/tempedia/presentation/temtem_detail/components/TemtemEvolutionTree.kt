@@ -10,9 +10,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -59,58 +60,61 @@ fun TemtemEvolutionTree(
                         .fillMaxWidth()
                         .background(color = Color.Black.copy(alpha = 0.7f))
                 )
-                Row(
+                Column (
                     modifier = Modifier.padding(8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    evolutionTree!!.forEach { temtem ->
-                        LaunchedEffect(key1 = temtem.number) {
-                            viewModel.getTemtemPortrait(temtem.number)
+                    evolutionTree!!.forEach { evolution ->
+                        LaunchedEffect(key1 = evolution.number) {
+                            viewModel.getTemtemPortrait(evolution.number)
                         }
 
                         //TODO: special distribution for those temtem that have more than 3 evolutions (Tuwai)
 
                         val portraitUrls by viewModel.portraitUrls
-                        val fromPortraitUrl = portraitUrls[temtem.number]
-
-                        Box(
-                            modifier = Modifier
-                                .height(64.dp)
-                                .weight(0.5f)
-                        ) {
-                            Image(
-                                painter = rememberAsyncImagePainter(
-                                    model = fromPortraitUrl
-                                ),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.portrait_border_primary),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
+                        val fromPortraitUrl = portraitUrls[evolution.number]
+                        Row(horizontalArrangement = Arrangement.Center) {
+                            Box(
+                                modifier = Modifier
+                                    .height(128.dp)
+                                    .weight(0.5f)
+                            ) {
+                                Image(
+                                    painter = rememberAsyncImagePainter(
+                                        model = fromPortraitUrl
+                                    ),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                                Image(
+                                    painter = painterResource(id = R.drawable.portrait_border_primary),
+                                    contentDescription = null,
+                                    modifier = Modifier.fillMaxSize()
+                                )
+                            }
                         }
 
-                        if (temtem.stage != evolutionTree.last().stage) {
-                            Column (
-                                modifier = Modifier.padding(4.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.Center
+                        if (evolution.stage != evolutionTree.last().stage) {
+                            val nextEvolution =
+                                evolutionTree.find { it.stage == evolution.stage + 1 }
+                            Row(
+                                horizontalArrangement = Arrangement.Center
                             ){
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.ArrowForward,
-                                    contentDescription = null
-                                )
-                                if (temtem.type == "levels") {
-                                    val evolvesAt = evolutionTree.find{
-                                        it.stage == temtem.stage + 1
-                                    }!!.level
-
-                                    Text("Lvling: $evolvesAt")
-                                } else {
-                                    Text("special")
-                                    Text(temtem.description!!)
+                                Column(
+                                    modifier = Modifier.padding(4.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center
+                                ) {
+                                    if (nextEvolution!!.type == "levels") {
+                                        Text("Lvling: ${nextEvolution.level}", fontSize = 28.sp)
+                                    } else {
+                                        Text(nextEvolution.description!!, fontSize = 28.sp)
+                                    }
+                                    Icon(
+                                        imageVector = Icons.Default.KeyboardArrowDown,
+                                        contentDescription = null,
+                                        modifier = Modifier.size(40.dp)
+                                    )
                                 }
                             }
                         }
