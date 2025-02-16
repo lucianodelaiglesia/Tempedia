@@ -19,14 +19,17 @@ import com.ldelaiglesia.tempedia.domain.models.EvolutionDetail
 import com.ldelaiglesia.tempedia.domain.models.Technique
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.DetailOptions
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.EvolutionDetailModal
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.EvolutionDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.SectionsButtons
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TechniqueDetailModal
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.technique.TechniqueDetailModal
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemBasicInfo
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemEvolutions
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemEvolutionTree
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemEvolutions
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemImageOrGif
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemMultipleEvolutionTree
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemNotEvolving
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemStatsDetails
-import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemTechniquesList
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.technique.TemtemTechniquesList
 
 @Composable
 fun TemtemDetailScreen(
@@ -56,9 +59,10 @@ fun TemtemDetailScreen(
                     TemtemBasicInfo(temtem = temtemDetail)
                 }
                 item {
-                    SectionsButtons { option ->
-                        selectedOption = option
-                    }
+                    SectionsButtons(
+                        selectedOption = selectedOption,
+                        onOptionSelected = { selectedOption = it }
+                    )
                 }
                 when (selectedOption) {
                     DetailOptions.STATS ->
@@ -79,16 +83,36 @@ fun TemtemDetailScreen(
                             )
                         }
 
-                    DetailOptions.EVOLUTION ->
-                        item {
-                            TemtemEvolutions(
-                                temtem = temtemDetail,
-                                onShowBottomSheet = { showBottomSheetEvolution = true },
-                                onEvolutionSelected = { selectedEvolution = it },
-                                viewModel = viewModel
-                            )
+                    DetailOptions.EVOLUTION -> {
+                        if (temtemDetail.evolution.evolves) {
+                            if (temtemDetail.evolution.evolutionTree!!.last().stage > 3) {
+                                item {
+                                    TemtemMultipleEvolutionTree(
+                                        temtem = temtemDetail,
+                                        viewModel = viewModel,
+                                        onShowBottomSheet = { showBottomSheetEvolution = true },
+                                        onEvolutionSelected = { selectedEvolution = it }
+                                    )
+                                }
+                            } else {
+                                item {
+                                    TemtemEvolutionTree(temtem = temtemDetail, viewModel = viewModel)
+                                }
+                                item {
+                                    TemtemEvolutions(
+                                        temtem = temtemDetail,
+                                        onShowBottomSheet = { showBottomSheetEvolution = true },
+                                        onEvolutionSelected = { selectedEvolution = it },
+                                        viewModel = viewModel
+                                    )
+                                }
+                            }
+                        } else {
+                            item{
+                                TemtemNotEvolving(temtem = temtemDetail)
+                            }
                         }
-
+                    }
                     DetailOptions.LOCATION ->
                         item {
                             //TODO Locations composable

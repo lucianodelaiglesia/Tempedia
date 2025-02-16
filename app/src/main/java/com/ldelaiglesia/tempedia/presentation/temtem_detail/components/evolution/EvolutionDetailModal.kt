@@ -1,4 +1,4 @@
-package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
+package com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

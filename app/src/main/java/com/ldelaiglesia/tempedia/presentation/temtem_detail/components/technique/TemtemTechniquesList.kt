@@ -1,4 +1,4 @@
-package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
+package com.ldelaiglesia.tempedia.presentation.temtem_detail.components.technique
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

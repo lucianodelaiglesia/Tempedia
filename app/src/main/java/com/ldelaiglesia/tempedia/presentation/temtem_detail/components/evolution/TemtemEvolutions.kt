@@ -1,6 +1,5 @@
-package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
+package com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -22,12 +21,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil3.compose.rememberAsyncImagePainter
-import com.ldelaiglesia.tempedia.R
+import com.ldelaiglesia.tempedia.common.PortraitImage
 import com.ldelaiglesia.tempedia.domain.models.EvolutionDetail
 import com.ldelaiglesia.tempedia.domain.models.TemtemDetail
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.TemtemDetailViewModel
@@ -46,14 +43,6 @@ fun TemtemEvolutions(
             .padding(20.dp)
     ) {
         if (temtem.evolution.evolves) {
-            if (temtem.evolution.evolutionTree!!.last().stage > 3){
-                TemtemMultipleEvolutionTree(temtem = temtem, viewModel = viewModel)
-            } else {
-                TemtemEvolutionTree(temtem = temtem, viewModel = viewModel)
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
             if (temtem.evolution.from != null) {
                 val fromNumber = temtem.evolution.from.number
                 LaunchedEffect(key1 = fromNumber) {
@@ -91,24 +80,12 @@ fun TemtemEvolutions(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
-                        Box(
+                        PortraitImage(
+                            url = fromPortraitUrl,
                             modifier = Modifier
-                                .height(64.dp)
+                                .height(80.dp)
                                 .weight(0.5f)
-                        ) {
-                            Image(
-                                painter = rememberAsyncImagePainter(
-                                    model = fromPortraitUrl
-                                ),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.portrait_border_primary),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
+                        )
                         Box(modifier = Modifier.weight(0.5f)) {
                             Text(
                                 temtem.evolution.from.name,
@@ -191,24 +168,12 @@ fun TemtemEvolutions(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceAround
                     ) {
-                        Box(
+                        PortraitImage(
+                            url = toPortraitUrl,
                             modifier = Modifier
                                 .height(80.dp)
                                 .weight(0.5f)
-                        ) {
-                            Image(
-                                painter = rememberAsyncImagePainter(
-                                    model = toPortraitUrl
-                                ),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.portrait_border_primary),
-                                contentDescription = null,
-                                modifier = Modifier.fillMaxSize()
-                            )
-                        }
+                        )
                         Box(modifier = Modifier.weight(0.5f)) {
                             Text(
                                 temtem.evolution.to.name,
@@ -250,31 +215,6 @@ fun TemtemEvolutions(
                             textAlign = TextAlign.Center
                         )
                     }
-                }
-            }
-        } else {
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = ColorPrimary
-                ),
-                modifier = Modifier
-                    .fillMaxWidth(),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceAround
-                ) {
-
-                    Text(
-                        text = "${temtem.name} doesn't evolve",
-                        color = Color.White,
-                        fontSize = 28.sp,
-                        textAlign = TextAlign.Center
-                    )
                 }
             }
         }

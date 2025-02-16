@@ -1,4 +1,4 @@
-package com.ldelaiglesia.tempedia.presentation.temtem_detail.components
+package com.ldelaiglesia.tempedia.presentation.temtem_detail.components.technique
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
