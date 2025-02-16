@@ -87,7 +87,8 @@ fun TemtemMultipleEvolutionTree(
                                             onShowBottomSheet(true)
                                             onEvolutionSelected(nextEvolution)
                                         },
-                                    horizontalArrangement = Arrangement.Center
+                                    horizontalArrangement = Arrangement.Center,
+                                    verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     PortraitImage(
                                         url = fromPortraitUrl,
