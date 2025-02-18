@@ -69,11 +69,11 @@ Tempedia is designed to be intuitive and easy to use. Here's a quick guide to ge
     * Tap on a Temtem from the list to view it's detailed information.
     * Use the navigation buttons at the top of the screen to switch between the different sections: Stats, Techniques, Evolutions, and Locations.
 4. **Techniques:**
-    * In the techniques section, you can see the techniques that the temtem can learn.
+    * In the techniques section, you can see the techniques that the Temtem can learn.
     * Tap on a technique to see more details.
 5. **Evolution:**
-    * In the evolutions section, you can see the evolution path of the temtem.
-    * Also, you can see the evolution tree of the temtem.
+    * In the evolutions section, you can see the evolution path of the Temtem.
+    * Also, you can see the evolution tree of the Temtem.
 6. **Locations (Coming Soon):**
     *   In the locations section, you'll find a list of areas where the Temtem appears.
     *   Tap on the "Show Map" button to view a detailed map of the location, highlighting the Temtem's habitats.
@@ -89,7 +89,7 @@ For any questions, feedback, or suggestions, please feel free to contact me at m
 
 ## Attribution
 
-This app uses data from the [Temtem API](https://temtem-api.mael.tech/). Made by: [![u/Maael](https://img.shields.io/badge/u/Maael-orange?style=plastic&logo=reddit&logoColor=white&link=https://www.reddit.com/user/Maael/)](https://www.reddit.com/user/Maael/) 
+This app uses data from the [Temtem API](https://Temtem-api.mael.tech/). Made by: [![u/Maael](https://img.shields.io/badge/u/Maael-orange?style=plastic&logo=reddit&logoColor=white&link=https://www.reddit.com/user/Maael/)](https://www.reddit.com/user/Maael/) 
 
 <br>
 
