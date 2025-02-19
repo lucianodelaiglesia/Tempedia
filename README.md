@@ -25,21 +25,57 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
     *   **Evolution Tree:** Visualize the complete evolution path of each Temtem, from it's initial form to it's final stage.
     *   **Locations:** Find out where each Temtem can be found in the Airborne Archipelago.
 
-<!--
 <br>
 
 ## Screenshots/GIFs
 
-*(Here you will add several images: Loading screen, list screen, details screen which will be like 5 or 6 images)*
+*   **Loading Screen:**
 
-*   **Loading Screen:** *(Add a screenshot of your loading screen here)*
-*   **Temtem List:** *(Add a screenshot of the screen where you list the Temtem)*
-*   **Temtem Details - Basic Info:** *(Add a screenshot of the basic info section of a Temtem)*
-*   **Temtem Details - Stats:** *(Add a screenshot of the stats section of a Temtem)*
-*   **Temtem Details - Techniques:** *(Add a screenshot of the techniques section of a Temtem)*
-*   **Temtem Details - Evolutions:** *(Add a screenshot of the evolutions section of a Temtem)*
-*   **Temtem Details - Locations:** *(Add a screenshot of the locations section of a Temtem)*
--->
+<div align="center">
+![LoadingScreen](screenshots/LoadingScreen.png)
+</div>
+
+*   **Temtem List:**
+
+<div align="center">
+![TemtemList](screenshots/ListScreen.png)
+![SearchByName](screenshots/SearchByName.png)
+![Filters](screenshots/Filters.png)
+![SearchByFilters](screenshots/SearchByFilters.png)
+![ResultSearchByFilters](screenshots/ResultSearchByFilters.png)
+</div>
+
+*   **Temtem Details - Basic Info:**
+
+<div align="center">
+![Image or GIF](screenshots/TemtemGif.mp4)
+![BasicInfo](screenshots/TemtemBasicInfo.png)
+</div>
+
+
+*   **Temtem Details - Stats:**
+
+<div align="center">
+![TemtemStats](screenshots/TemtemStats.png)
+</div>
+
+*   **Temtem Details - Techniques:**
+
+<div align="center">
+![TemtemTechniques](screenshots/TemtemTechniques.png)
+![TechniqueDetails](screenshots/TechniqueDetails.png)
+</div>
+
+*   **Temtem Details - Evolutions:**
+
+<div align="center">
+![TemtemEvolutionTree](screenshots/TemtemEvolutionTree.png)
+![TemtemEvolutions](screenshots/TemtemEvolutions.png)
+![TemtemEvolutions2](screenshots/TemtemEvolutions2.png)
+![TemtemEvolutions3](screenshots/TemtemEvolutions3.png)
+</div>
+
+*   **Temtem Details - Locations (Coming Soon):**
 
 <!--
 <br>
