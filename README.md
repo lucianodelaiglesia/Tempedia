@@ -54,8 +54,8 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 
 <table>
   <tr>
-    <td align="center"><img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 30%; margin: 10px;"></td>
+    <td align="center"><img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 80%; margin: 10px;"></td>
+    <td align="center"><img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 50%; margin: 10px;"></td>
   </tr>
 </table>
 
@@ -63,7 +63,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 *   **Temtem Details - Stats:**
 
 <div align="center">
-    <img src="screenshots/TemtemStats.png" alt="TemtemStats" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemStats.png" alt="TemtemStats" style="width: 50%; margin: 10px;">
 </div>
 
 <!-- Temtem Details - Techniques -->
