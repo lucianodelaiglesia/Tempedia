@@ -32,28 +32,22 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Loading Screen -->
 *   **Loading Screen:**
 
-<table>
-  <tr>
-    <td align="center"><img src="screenshots/LoadingScreen.png" alt="Loading Screen" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
+<div align="center">
+    <img src="screenshots/LoadingScreen.png" alt="Loading Screen" style="width: 30%; margin: 10px;">
+</div>
 
 <!-- Temtem List -->
 *   **Temtem List:**
 
-<table>
-  <tr>
-	<td align="center"><img src="screenshots/ListScreen.png" alt="Temtem List" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/SearchByName.png" alt="SearchByName" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
-<table>
-  <tr>
-    <td align="center"><img src="screenshots/Filters.png" alt="Filters" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/SearchByFilters.png" alt="SearchByFilters" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/ResultSearchByFilters.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
+<div align="center">
+    <img src="screenshots/ListScreen.png" alt="Temtem List" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByName.png" alt="SearchByName" style="width: 30%; margin: 10px;">
+</div>
+<div align="center">
+    <img src="screenshots/Filters.png" alt="Filters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByFilters.png" alt="SearchByFilters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/ResultSearchByFilters.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;">
+</div>
 
 <!-- Temtem Details - Basic Info -->
 *   **Temtem Details - Basic Info:**
@@ -68,32 +62,26 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Stats -->
 *   **Temtem Details - Stats:**
 
-<table>
-  <tr>
-    <td align="center"><img src="screenshots/TemtemStats.png" alt="TemtemStats" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
+<div align="center">
+    <img src="screenshots/TemtemStats.png" alt="TemtemStats" style="width: 30%; margin: 10px;">
+</div>
 
 <!-- Temtem Details - Techniques -->
 *   **Temtem Details - Techniques:**
 
-<table>
-  <tr>
-    <td align="center"><img src="screenshots/TemtemTechniques.png" alt="TemtemTechniques" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/TechniqueDetails.png" alt="TechniqueDetails" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
+<div align="center">
+    <img src="screenshots/TemtemTechniques.png" alt="TemtemTechniques" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TechniqueDetails.png" alt="TechniqueDetails" style="width: 30%; margin: 10px;">
+</div>
 
 <!-- Temtem Details - Evolutions -->
 *   **Temtem Details - Evolutions:**
 
-<table>
-  <tr>
-    <td align="center"><img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;"></td>
-    <td align="center"><img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;"></td>
-  </tr>
-</table>
+<div align="center">
+    <img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;">
+</div>
 
 *   **Temtem Details - Locations (Coming Soon):**
 
