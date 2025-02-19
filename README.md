@@ -32,47 +32,59 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 *   **Loading Screen:**
 
 <div align="center">
+
 ![LoadingScreen](screenshots/LoadingScreen.png)
+
 </div>
 
 *   **Temtem List:**
 
 <div align="center">
+
 ![TemtemList](screenshots/ListScreen.png)
 ![SearchByName](screenshots/SearchByName.png)
 ![Filters](screenshots/Filters.png)
 ![SearchByFilters](screenshots/SearchByFilters.png)
 ![ResultSearchByFilters](screenshots/ResultSearchByFilters.png)
+
 </div>
 
 *   **Temtem Details - Basic Info:**
 
 <div align="center">
+
 ![Image or GIF](screenshots/TemtemGif.mp4)
 ![BasicInfo](screenshots/TemtemBasicInfo.png)
+
 </div>
 
 
 *   **Temtem Details - Stats:**
 
 <div align="center">
+
 ![TemtemStats](screenshots/TemtemStats.png)
+
 </div>
 
 *   **Temtem Details - Techniques:**
 
 <div align="center">
+
 ![TemtemTechniques](screenshots/TemtemTechniques.png)
 ![TechniqueDetails](screenshots/TechniqueDetails.png)
+
 </div>
 
 *   **Temtem Details - Evolutions:**
 
 <div align="center">
+
 ![TemtemEvolutionTree](screenshots/TemtemEvolutionTree.png)
 ![TemtemEvolutions](screenshots/TemtemEvolutions.png)
 ![TemtemEvolutions2](screenshots/TemtemEvolutions2.png)
 ![TemtemEvolutions3](screenshots/TemtemEvolutions3.png)
+
 </div>
 
 *   **Temtem Details - Locations (Coming Soon):**
