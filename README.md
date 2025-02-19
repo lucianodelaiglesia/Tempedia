@@ -42,6 +42,8 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
     <img src="screenshots/ListScreen.png" alt="Temtem List" style="width: 30%; margin: 10px;">
     <img src="screenshots/SearchByName.png" alt="SearchByName" style="width: 30%; margin: 10px;">
+</div>
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
     <img src="screenshots/Filters.png" alt="Filters" style="width: 30%; margin: 10px;">
     <img src="screenshots/SearchByFilters.png" alt="SearchByFilters" style="width: 30%; margin: 10px;">
     <img src="screenshots/ResultSearchByFilters.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;">
@@ -50,9 +52,9 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Basic Info -->
 *   **Temtem Details - Basic Info:**
 
-<div style="display: flex; justify-content: center; flex-wrap: wrap;">
-   <img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 30%; margin: 10px;">
-   <img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 30%; margin: 10px;">
+<div style="display: flex; justify-content: center; flex-wrap: wrap; align-content: center; flex-direction: column;">
+    <img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 30%; margin: 10px;">
 </div>
 
 <!-- Temtem Details - Stats -->
@@ -65,7 +67,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Techniques -->
 *   **Temtem Details - Techniques:**
 
-<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+<div style="display: flex; justify-content: center; flex-wrap: wrap; align-content: center; flex-direction: column;">
     <img src="screenshots/TemtemTechniques.png" alt="TemtemTechniques" style="width: 30%; margin: 10px;">
     <img src="screenshots/TechniqueDetails.png" alt="TechniqueDetails" style="width: 30%; margin: 10px;">
 </div>
@@ -76,7 +78,6 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
     <img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;">
-    <img src="screenshots/TemtemEvolutions2.png" alt="TemtemEvolutions2" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;">
 </div>
 
