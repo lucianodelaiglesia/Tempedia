@@ -29,62 +29,55 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 
 ## Screenshots/GIFs
 
+<!-- Loading Screen -->
 *   **Loading Screen:**
 
 <div align="center">
-
-![LoadingScreen](screenshots/LoadingScreen.png)
-
+    <img src="screenshots/LoadingScreen.png" alt="Loading Screen" style="width: 30%; margin: 10px;">
 </div>
 
+<!-- Temtem List -->
 *   **Temtem List:**
 
-<div align="center">
-
-![TemtemList](screenshots/ListScreen.png)
-![SearchByName](screenshots/SearchByName.png)
-![Filters](screenshots/Filters.png)
-![SearchByFilters](screenshots/SearchByFilters.png)
-![ResultSearchByFilters](screenshots/ResultSearchByFilters.png)
-
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <img src="screenshots/ListScreen.png" alt="Temtem List" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByName.png" alt="SearchByName" style="width: 30%; margin: 10px;">
+    <img src="screenshots/Filters.png" alt="Filters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByFilters.png" alt="SearchByFilters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/ResultSearchByFilters.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;">
 </div>
 
+<!-- Temtem Details - Basic Info -->
 *   **Temtem Details - Basic Info:**
 
-<div align="center">
-
-![Image or GIF](screenshots/TemtemGif.mp4)
-![BasicInfo](screenshots/TemtemBasicInfo.png)
-
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+   <img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 30%; margin: 10px;">
+   <img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 30%; margin: 10px;">
 </div>
 
-
+<!-- Temtem Details - Stats -->
 *   **Temtem Details - Stats:**
 
 <div align="center">
-
-![TemtemStats](screenshots/TemtemStats.png)
-
+    <img src="screenshots/TemtemStats.png" alt="TemtemStats" style="width: 30%; margin: 10px;">
 </div>
 
+<!-- Temtem Details - Techniques -->
 *   **Temtem Details - Techniques:**
 
-<div align="center">
-
-![TemtemTechniques](screenshots/TemtemTechniques.png)
-![TechniqueDetails](screenshots/TechniqueDetails.png)
-
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <img src="screenshots/TemtemTechniques.png" alt="TemtemTechniques" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TechniqueDetails.png" alt="TechniqueDetails" style="width: 30%; margin: 10px;">
 </div>
 
+<!-- Temtem Details - Evolutions -->
 *   **Temtem Details - Evolutions:**
 
-<div align="center">
-
-![TemtemEvolutionTree](screenshots/TemtemEvolutionTree.png)
-![TemtemEvolutions](screenshots/TemtemEvolutions.png)
-![TemtemEvolutions2](screenshots/TemtemEvolutions2.png)
-![TemtemEvolutions3](screenshots/TemtemEvolutions3.png)
-
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+    <img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions2.png" alt="TemtemEvolutions2" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;">
 </div>
 
 *   **Temtem Details - Locations (Coming Soon):**
