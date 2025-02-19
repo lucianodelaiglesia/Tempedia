@@ -39,7 +39,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem List -->
 *   **Temtem List:**
 
-<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+<div align="center">
     <img src="screenshots/ListScreen.png" alt="Temtem List" style="width: 30%; margin: 10px;">
     <img src="screenshots/SearchByName.png" alt="SearchByName" style="width: 30%; margin: 10px;">
 </div>
@@ -52,7 +52,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Basic Info -->
 *   **Temtem Details - Basic Info:**
 
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+<div align="center">
     <img src="screenshots/ImageGif.gif" alt="Image GIF" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemBasicInfo.png" alt="BasicInfo" style="width: 30%; margin: 10px;">
 </div>
@@ -67,7 +67,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Techniques -->
 *   **Temtem Details - Techniques:**
 
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+<div align="center">
     <img src="screenshots/TemtemTechniques.png" alt="TemtemTechniques" style="width: 30%; margin: 10px;">
     <img src="screenshots/TechniqueDetails.png" alt="TechniqueDetails" style="width: 30%; margin: 10px;">
 </div>
@@ -75,7 +75,7 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 <!-- Temtem Details - Evolutions -->
 *   **Temtem Details - Evolutions:**
 
-<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+<div align="center">
     <img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;">
