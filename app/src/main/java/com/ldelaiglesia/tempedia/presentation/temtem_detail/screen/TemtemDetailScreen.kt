@@ -132,7 +132,8 @@ fun TemtemDetailScreen(
             EvolutionDetailModal(
                 showBottomSheetEvolution,
                 onDismissRequest = { showBottomSheetEvolution = false },
-                it
+                it,
+                viewModel
             )
         }
 

@@ -34,6 +34,9 @@ class TemtemDetailViewModel @Inject constructor(
     private val _portraitUrls = mutableStateOf<Map<Int, String>>(emptyMap())
     val portraitUrls: State<Map<Int, String>> = _portraitUrls
 
+    private val _evolutionTypes = mutableStateOf<List<String>>(emptyList())
+    val evolutionTypes: State<List<String>> = _evolutionTypes
+
     init {
         savedStateHandle.get<String>(PARAM_TEMTEM_ID)?.let { temtemId ->
             getTemtem(temtemId.toInt())
@@ -106,6 +109,30 @@ class TemtemDetailViewModel @Inject constructor(
                     _temtemDetailState.value = _temtemDetailState.value.copy(
                         portraitLoadingState = false,
                         portraitError = result.message ?: "Unknown error"
+                    )
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getEvolutionTypes(number: Int) {
+        getTemtemDetailUseCase(number).onEach { result ->
+            when (result){
+                is Resource.Success -> {
+                    result.data?.let { temtemDetail ->
+                        _evolutionTypes.value = temtemDetail.types
+                    }
+                }
+                is Resource.Loading -> {
+                    _temtemDetailState.value = _temtemDetailState.value.copy(
+                        evolutionTypesLoadingState = true,
+                        evolutionTypesError = ""
+                    )
+                }
+                is Resource.Error -> {
+                    _temtemDetailState.value = _temtemDetailState.value.copy(
+                        evolutionTypesLoadingState = false,
+                        evolutionTypesError = result.message ?: "Unknown error"
                     )
                 }
             }

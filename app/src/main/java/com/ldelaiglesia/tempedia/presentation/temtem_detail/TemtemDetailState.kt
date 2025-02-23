@@ -8,5 +8,7 @@ data class TemtemDetailState(
     override val data: TemtemDetail? = null,
     override val error: String = "",
     val portraitLoadingState: Boolean = false,
-    val portraitError: String = ""
+    val portraitError: String = "",
+    val evolutionTypesLoadingState: Boolean = false,
+    val evolutionTypesError: String = ""
 ): TemtemState<TemtemDetail>
