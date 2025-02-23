@@ -14,7 +14,8 @@ data class TemtemDetailDto(
     @SerializedName("icon") val portraitList: String,
     @SerializedName("gameDescription") val gameDescription: String,
     @SerializedName("techniques") val techniques: List<Technique>,
-    @SerializedName("evolution") val evolution: TemtemEvolution
+    @SerializedName("evolution") val evolution: TemtemEvolution,
+    @SerializedName("traits") val traits: List<String>
 )
 
 data class Stats(
@@ -48,7 +49,8 @@ fun TemtemDetailDto.toTemtemDetail(): TemtemDetail {
         techniques = techniques,
         portrait = findTemtemPortrait(number),
         portraitGif = findTemtemPortraitGif(number),
-        evolution = evolution
+        evolution = evolution,
+        traits = traits
     )
 }
 

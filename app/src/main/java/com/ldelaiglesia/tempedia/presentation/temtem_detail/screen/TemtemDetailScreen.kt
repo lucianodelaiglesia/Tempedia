@@ -29,6 +29,7 @@ import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemIma
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemMultipleEvolutionTree
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.evolution.TemtemNotEvolving
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemStatsDetails
+import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.TemtemTraits
 import com.ldelaiglesia.tempedia.presentation.temtem_detail.components.technique.TemtemTechniquesList
 
 @Composable
@@ -57,6 +58,9 @@ fun TemtemDetailScreen(
                 }
                 item {
                     TemtemBasicInfo(temtem = temtemDetail)
+                }
+                item {
+                    TemtemTraits(traits = temtemDetail.traits, text = "Traits: ", padding = 20)
                 }
                 item {
                     SectionsButtons(
