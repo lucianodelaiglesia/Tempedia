@@ -38,6 +38,9 @@ class TemtemListViewModel @Inject constructor(
     private val _selectedTypes = MutableStateFlow<Set<String>>(emptySet())
     val selectedTypes: StateFlow<Set<String>> = _selectedTypes
 
+    private val _isAndFilter = MutableStateFlow(true)
+    val isAndFilter: StateFlow<Boolean> = _isAndFilter
+
     private val _searchText = mutableStateOf("")
 
     init {
@@ -103,11 +106,30 @@ class TemtemListViewModel @Inject constructor(
         applySearchAndFilter()
     }
 
+    fun updateIsAndFilter(isAnd: Boolean){
+        _isAndFilter.value = isAnd
+        applySearchAndFilter()
+    }
+
     private fun applySearchAndFilter() {
         viewModelScope.launch {
             val filteredList = temtemList.filter { temtem ->
                 //Filter by type
-                _selectedTypes.value.isEmpty() || temtem.types.any { it in _selectedTypes.value }
+                if (_selectedTypes.value.isEmpty()) {
+                    true
+                } else {
+                    if (_isAndFilter.value) {
+                        //AND filter
+                        _selectedTypes.value.all{ type ->
+                            temtem.types.contains(type)
+                        }
+                    } else {
+                        //OR filter
+                        _selectedTypes.value.any{ type ->
+                            temtem.types.contains(type)
+                        }
+                    }
+                }
             }.filter { temtem ->
                 //Filter by search
                 _searchText.value.isEmpty() || temtem.name.contains(

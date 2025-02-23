@@ -60,7 +60,8 @@ fun TemtemListScreen(
                             selectedTypes - type
                         }
                         viewModel.filterByTypes(localSelectedTypes)
-                    }, typeList = typeList
+                    }, typeList = typeList,
+                    viewModel = viewModel
                 )
             }
         }, content = {
