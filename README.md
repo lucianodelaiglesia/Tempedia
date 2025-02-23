@@ -79,10 +79,12 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 
 <div align="center">
     <img src="screenshots/TemtemEvolutionTree.png" alt="TemtemEvolutionTree" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutionTree2.png" alt="TemtemEvolutionTree2" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutionDetails.png" alt="TemtemEvolutionDetails" style="width: 30%; margin: 10px;">
 </div>
 <div align="center">
     <img src="screenshots/TemtemEvolutions.png" alt="TemtemEvolutions" style="width: 30%; margin: 10px;">
-	<img src="screenshots/TemtemEvolutions2.png" alt="TemtemEvolutions2" style="width: 30%; margin: 10px;">
+    <img src="screenshots/TemtemEvolutions2.png" alt="TemtemEvolutions2" style="width: 30%; margin: 10px;">
     <img src="screenshots/TemtemEvolutions3.png" alt="TemtemEvolutions3" style="width: 30%; margin: 10px;">
 </div>
 
