@@ -175,7 +175,7 @@ fun EvolutionDetailModal(
                             horizontalAlignment = Alignment.Start
                         ) {
                             Text(
-                                text = "Changes to:",
+                                text = "Changes from:",
                                 fontSize = 24.sp,
                                 color = Color.White
                             )
