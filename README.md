@@ -45,8 +45,8 @@ Tempedia is a detailed encyclopedia that contains information about every Temtem
 </div>
 <div align="center">
     <img src="screenshots/Filters.png" alt="Filters" style="width: 30%; margin: 10px;">
-    <img src="screenshots/SearchByFilters.png" alt="SearchByFilters" style="width: 30%; margin: 10px;">
-    <img src="screenshots/ResultSearchByFilters.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByFiltersOR.png" alt="SearchByFilters" style="width: 30%; margin: 10px;">
+    <img src="screenshots/SearchByFiltersAND.png" alt="ResultSearchByFilters" style="width: 30%; margin: 10px;">
 </div>
 
 <!-- Temtem Details - Basic Info -->
